@@ -1,7 +1,21 @@
-.criminal__style { 
+.criminal__list{ 
     display: flex;
-    justify-content: center;
-    margin-left: 4rem;
-    margin-right: 4rem;
-    align-content: flex-start;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.criminal__style { 
+    border: black dotted .5px;
+    width: 15%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.criminalsContainer { 
+    display: flex;
+    flex-wrap: wrap;
+
 }
