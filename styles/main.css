@@ -1,0 +1,7 @@
+.criminal__style { 
+    display: flex;
+    justify-content: center;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    align-content: flex-start;
+}
