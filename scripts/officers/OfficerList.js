@@ -2,7 +2,7 @@ import { useOfficers, getOfficers } from "./OfficerProvider.js";
 import { officerHTMLConverter } from "./OfficerHTMLConverter.js";
 
 
-const contentTarget = document.querySelector(".officerContainer")
+const contentTarget = document.querySelector(".officersContainer")
 
 export const officerList = () => { 
 
@@ -15,7 +15,5 @@ export const officerList = () => {
         })
         
         contentTarget.innerHTML = officerHTMLRep
-    }
-    
-    )
+        })
 }
