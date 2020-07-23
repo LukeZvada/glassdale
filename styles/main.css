@@ -17,5 +17,10 @@
 .criminalsContainer { 
     display: flex;
     flex-wrap: wrap;
+}
 
+.criminal__Name { 
+    display: flex;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }

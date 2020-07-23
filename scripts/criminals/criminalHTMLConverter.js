@@ -1,7 +1,7 @@
 export const criminalHTMlConverter = (criminalObj) => { 
     return `
         <section class="criminal__style">
-           <div class="criminal__list"> ${criminalObj.name} </div>
+           <h4 class="criminal__Name"> ${criminalObj.name} </h4>
            <div class="criminal__list"> Age: ${criminalObj.age} </div>
            <div class="criminal__list"> Crime: ${criminalObj.conviction} </div>
            <div class="criminal__list"> Term Start: ${new Date(criminalObj.incarceration.start).toLocaleDateString('en-US')} </div>

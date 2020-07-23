@@ -10,4 +10,6 @@
 // officerList()
 
 import { criminalList } from "./criminals/criminalList.js";
+import { ConvictionSelect } from "./convictions/covinictionSelect.js";
 criminalList()
+ConvictionSelect()
