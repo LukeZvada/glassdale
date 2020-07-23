@@ -13,8 +13,9 @@ export const officerList = () => {
         officerArray.forEach(officer => {
             officerHTMLRep += officerHTMLConverter(officer)
         })
+        
+        contentTarget.innerHTML = officerHTMLRep
     }
-    
     
     )
 }

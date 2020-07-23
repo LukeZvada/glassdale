@@ -6,3 +6,5 @@
 // console.log(officerArray)
 // })
 
+import { officerList } from "./officers/OfficerList.js";
+officerList()
