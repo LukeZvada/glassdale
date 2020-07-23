@@ -1,5 +1,5 @@
 import { useCriminals, getCriminals } from "./criminalDataProvider.js";
-import { criminalHTMlConverter } from "./criminalHTMLConverter";
+import { criminalHTMlConverter } from "./criminalHTMLConverter.js";
 
 const contentTarget = document.querySelector(".criminalsContainer")
 
@@ -10,7 +10,7 @@ export const criminalList = () =>
         const criminalArray = useCriminals()
         let criminalHTMLRep = ""
         criminalArray.forEach(criminal => {
-            criminalHTMLRep += criminalHTMLRep(criminal)
+            criminalHTMLRep += criminalHTMlConverter(criminal)
         })
 
         contentTarget.innerHTML = criminalHTMLRep
