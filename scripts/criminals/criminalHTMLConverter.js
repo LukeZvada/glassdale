@@ -1,6 +1,6 @@
 export const criminalHTMlConverter = (criminalObj) => { 
     return `
-        <section>
+        <section class="criminal__style">
             ${criminalObj.name}
             ${criminalObj.age}
             ${criminalObj.conviction}
