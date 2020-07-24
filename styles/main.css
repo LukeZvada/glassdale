@@ -1,26 +1,2 @@
-.criminal__list{ 
-    display: flex;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-.criminal__style { 
-    border: black dotted .5px;
-    width: 15%;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    margin-bottom: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-}
-
-.criminalsContainer { 
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.criminal__Name { 
-    display: flex;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
+  @import "./criminals.css";
+  @import "./officers.css";
