@@ -13,5 +13,10 @@ export const criminalList = () =>
             criminalHTMLRep += criminalHTMlConverter(criminal)
         })
 
-        contentTarget.innerHTML = criminalHTMLRep
+        contentTarget.innerHTML = `
+        <h3>Glassdale Convicted Criminals</h3>
+        <article class="officerList">
+            ${criminalHTMLRep}
+        </article>
+    `
     })
