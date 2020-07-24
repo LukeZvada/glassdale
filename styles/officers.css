@@ -1,0 +1,18 @@
+  
+.officerList {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.officerName {
+    flex-basis: 15%;
+    margin: 1rem;
+    border: 1px dotted black;
+    padding: 1rem;
+}
+
+h2 { 
+    display: flex;
+    justify-content: center;
+}
