@@ -31,7 +31,7 @@ export const ConvictionSelect = () => {
                         convictionObject => {
                             return `<option>${convictionObject.name}</option>`
                         }
-                    ).join("")
+                    ).join("") //gets rid of the comma in the array when logged
                 }
             </select>
         `
