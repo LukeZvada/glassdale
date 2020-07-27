@@ -6,6 +6,16 @@ import { useConvictions, getConvictions } from "../convictions/ConvictionProvide
 
 // Get a reference to the DOM element where the <select> will be rendered
 const contentTarget = document.querySelector(".filters__crime")
+const eventHub = document.querySelector(".container")
+
+contentTarget.addEventListener("change", (changeEvent) => {
+    const customEvent = new CustomEvent("crimeSelected", {
+        detail: {
+            crimeId: changeEvent.target.value
+        }
+    })
+    eventHub.dispatchEvent(customEvent)
+})
 
 export const ConvictionSelect = () => {
     getConvictions().then(() => {
@@ -29,7 +39,7 @@ export const ConvictionSelect = () => {
                 ${
                     convictionsCollection.map(
                         convictionObject => {
-                            return `<option>${convictionObject.conviction}</option>`
+                            return `<option value="${ convictionObject.id }">${convictionObject.conviction}</option>`
                         }
                     ).join("") //gets rid of the comma in the array when logged
                 }
