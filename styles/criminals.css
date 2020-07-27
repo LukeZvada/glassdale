@@ -1,31 +1,20 @@
-h3 { 
+.criminalList {
     display: flex;
-    justify-content: center;
-}
-
-.criminal__list{ 
-    display: flex;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-.criminal__style { 
-    border: black dotted .5px;
-    width: 15%;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    margin-bottom: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-}
-
-.criminalsContainer { 
-    display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
-.criminal__Name { 
+.criminal {
+    flex-basis: 23%;
+    margin: 1rem;
+    border: 1px dotted rgb(0, 174, 255);
+    border-radius: 2rem;
+    padding: 0.5rem;
+    background-color: rgb(84, 91, 94);
+    color: rgb(223, 222, 222);
+}
+
+h3 { 
     display: flex;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    justify-content: center;
 }
