@@ -1,7 +1,5 @@
-/*
- *   ConvictionSelect component that renders a select HTML element
- *   which lists all convictions in the Glassdale PD API
- */
+    // *   ConvictionSelect component is what renders a select HTML element which lists all convictions in the Glassdale PD API
+
 import { useConvictions, getConvictions } from "../convictions/ConvictionProvider.js"
 
 // Get a reference to the DOM element where the <select> will be rendered
@@ -17,7 +15,8 @@ contentTarget.addEventListener("change", (changeEvent) => {
     eventHub.dispatchEvent(customEvent)
 })
 
-export const ConvictionSelect = () => {
+export const ConvictionSelect = () => { 
+    // *   ConvictionSelect component that renders a select HTML element which lists all convictions in the Glassdale PD API
     getConvictions().then(() => {
         // Get all convictions from application state / aplication state means its current condition 
         const convictions = useConvictions()
@@ -27,11 +26,6 @@ export const ConvictionSelect = () => {
 
         
     const render = convictionsCollection => {
-        /*
-            Use interpolation here to invoke the map() method on
-            the convictionsCollection to generate the option elements.
-            Look back at the example provided above.
-        */
 
         contentTarget.innerHTML = `
             <select class="dropdown" id="crimeSelect">
@@ -39,7 +33,7 @@ export const ConvictionSelect = () => {
                 ${
                     convictionsCollection.map(
                         convictionObject => {
-                            return `<option value="${ convictionObject.id }">${convictionObject.conviction}</option>`
+                            return `<option value="${ convictionObject.id }">${convictionObject.name}</option>`
                         }
                     ).join("") //gets rid of the comma in the array when logged
                 }

@@ -5,48 +5,45 @@ import { useConvictions } from "../convictions/ConvictionProvider.js";
 const contentTarget = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
 
-eventHub.addEventListener('crimeSelected', (crimeSelectedEvent) => {
-    // The goal here is to filter dispalyed by the crime that was chosen
+eventHub.addEventListener("crimeSelected", (crimeSelectedEvent) => {
+    // the goal here is to Filter displayed criminals by the crime that was chosen by the user in the dropdown menu.
 
-    //Which crime was chosen??? 
-    const selectedCrime = crimeSelectedEvent.detail.crimeId
+    // Looking for what crime was chosen
+    const crimeThatWasSelected = crimeSelectedEvent.detail.crimeId  // 9
 
-    //Get actual crime name since the number is not enough
+    // Get actual crime name. Number is not enough.
     const arrayOfCrimes = useConvictions()
     const foundCrimeObject = arrayOfCrimes.find(
         (crime) => {
-            return parseInt(selectedCrime) === crime.id
-        }
-    ) //this evaluates to { id: 9, name: "theft" } that we originally got from the API 
+            return parseInt(crimeThatWasSelected) === crime.id
+        }) // { id: 9, name: "Theft" }
 
-    //Filter criminal array to only criminal that have a matching conviction property after you get crime name.  
-
+    // Filter criminal array to only criminal that have a matching `conviction` property value
     const allCriminals = useCriminals()
 
-    const filteredCriminals = allCriminals.filter (
+    const filteredCriminals = allCriminals.filter(
         (currentCriminalObject) => {
             return foundCrimeObject.name === currentCriminalObject.conviction
-        }) 
-
-    render(filteredCriminals)
-
-
-    const render = (arrayOfCriminals) => {
-        let criminalHTMLRep = ""
-        criminalArray.forEach(criminal => {
-            criminalHTMLRep += criminalHTMlConverter(criminal)
         })
-
-        arrayOfCriminals.innerHTML = `
-        <h3>Glassdale Convicted Criminals</h3>
-        <article class="officerList">
-            ${criminalHTMLRep}
-        </article>`
-    }
-
+    render(filteredCriminals)
 })
 
-export const CriminalList = () => {
+const render = (arrayOfCriminals) => {
+    let criminalHTMLRep = ""
+
+    arrayOfCriminals.forEach(criminal => {
+        criminalHTMLRep += criminalHTMlConverter(criminal)
+    })
+
+    contentTarget.innerHTML = `
+        <h2>Glassdale Convicted Criminals</h2>
+        <article class="criminalList">
+            ${ criminalHTMLRep }
+        </article>
+    `
+}
+
+export const criminalList = () => {
 
     getCriminals()
         .then(() => {
