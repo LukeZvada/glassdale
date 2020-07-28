@@ -40,12 +40,16 @@ eventHub.addEventListener("officerSelected", (officerSelectedEvent) => {
     // How can you access the officer name that was selected by the user?
     const officerThatWasSelected = officerSelectedEvent.detail.officerId
 
-    const arrayOfOfficers = useOfficers()
-    const foundOfficerObject = arrayOfOfficers.find(
-        (officer) => {
-            return parseInt(officerThatWasSelected) === officer.id
+    if (officerThatWasSelected === "0") { //Used the crimeid to figure out if the "please select a crime.." was selected. 
+        const allCriminals = useCriminals() // invoked the  useCriminals() function to get all of the criminal and render it
+        render(allCriminals) 
+    } else {
+        const arrayOfOfficers = useOfficers()
+        const foundOfficerObject = arrayOfOfficers.find(
+            (officer) => {
+                return parseInt(officerThatWasSelected) === officer.id
         })
-    console.log(foundOfficerObject)
+    // console.log(foundOfficerObject)
     const allCriminals = useCriminals()
 
     const filteredCriminals = allCriminals.filter(
@@ -53,7 +57,9 @@ eventHub.addEventListener("officerSelected", (officerSelectedEvent) => {
             return currentCriminalObject.arrestingOfficer === foundOfficerObject.name
         })
         render(filteredCriminals)
-    })
+    }
+})
+
 
 
     // use .find to filter out the officer object that matches the officer id that was selected
