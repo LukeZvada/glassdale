@@ -1,2 +1,9 @@
   @import "./criminals.css";
   @import "./officers.css";
+
+
+  .lists { 
+    display: flex;
+    flex-direction: row 
+
+  }

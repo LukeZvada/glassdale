@@ -1,0 +1,27 @@
+import { getNotes, useNotes } from "./NoteDataProvider.js";
+import { noteHTMLConverter } from "./Note.js";
+
+const contentTarget = document.querySelector(".noteListContainer")
+const eventHub = document.addEventListener(".container")
+
+eventHub.addEventListener('showNotesClicked', CustomEvent => {
+    NoteList()
+})
+
+const render = (noteArr) => { 
+    const allNotesHTML = noteArr.map (
+        (currentNote) => {
+           return noteHTMLConverter(currentNote)  
+        }
+    ).join("")
+
+    contentTarget.innerHTML = allNotesHTML
+}
+
+export const NoteList = () => { 
+    getNotes()
+        .then(() => { 
+            const allNotes = useNotes
+            render(allNotes)
+        })
+}

@@ -12,9 +12,12 @@ import { criminalList} from "./criminals/criminalList.js";
 import { ConvictionSelect } from "./convictions/covinictionSelect.js";
 import { officerSelect } from "./officers/OfficerSelect.js";
 import { NoteForm } from "./Notes/NoteForm.js";
+import { showNoteButton } from "./Notes/ShowNoteButton.js";
+import "./Notes/NoteList.js"
 
 officerList()
 criminalList()
 ConvictionSelect()
 officerSelect()
 NoteForm()
+showNoteButton()
