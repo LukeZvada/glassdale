@@ -1,3 +1,5 @@
+let notes = []
+
 const eventHub = document.querySelector(".container")
 
 const dispatchStateChangeEvent = () => {
@@ -17,14 +19,14 @@ const getNotes = () => {
 
 export const saveNote = note => {
     fetch('http://localhost:8088/notes', {
-        method: "POST",
+        method: "POST", // this is a create method 
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json" //this is sending metadata. Telling the server its json 
         },
-        body: JSON.stringify(note)
+        body: JSON.stringify(note)//this is the body that yu create
     })
-    .then(getNotes)
-    .then(dispatchStateChangeEvent)
+    .then(getNotes) //once function is done then it goes to get the notes. This is because it keeps the state of the API and Application syched 
+    .then(dispatchStateChangeEvent) //instead of x amount of notes you now have y amount of created. State event 
 }
 
 
@@ -34,20 +36,3 @@ export const saveNote = note => {
 
 
 
-
-eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "saveNote") {
-
-        // Make a new object representation of a note
-        const newNote = {
-            // Key/value pairs here
-        }
-
-        // Change API state and application state
-        saveNote(newNote)
-    }
-})
-
-const NoteForm = () => {
-    // rest of the code here
-}

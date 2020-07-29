@@ -1,3 +1,18 @@
 {
-    "notes": []
+  "notes": [
+    {
+      "id": 1,
+      "title": "Note about felon",
+      "timestamp": "07/29/2020",
+      "author": "Suzy Police",
+      "content": "Blah blah  blah"
+    },
+    {
+      "title": "fds",
+      "author": "fds",
+      "content": " fds",
+      "timestamp": 1596035190430,
+      "id": 2
+    }
+  ]
 }
