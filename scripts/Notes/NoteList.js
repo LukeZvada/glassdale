@@ -2,9 +2,9 @@ import { getNotes, useNotes } from "./NoteDataProvider.js";
 import { noteHTMLConverter } from "./Note.js";
 
 const contentTarget = document.querySelector(".noteListContainer")
-const eventHub = document.addEventListener(".container")
+const eventHub = document.querySelector(".container")
 
-eventHub.addEventListener('showNotesClicked', CustomEvent => {
+eventHub.addEventListener('showNotesClicked', customEvent => {
     NoteList()
 })
 
@@ -21,7 +21,7 @@ const render = (noteArr) => {
 export const NoteList = () => { 
     getNotes()
         .then(() => { 
-            const allNotes = useNotes
+            const allNotes = useNotes()
             render(allNotes)
         })
 }
