@@ -7,3 +7,11 @@
     flex-direction: row 
 
   }
+
+  .criminalsContainer { 
+    flex: 4
+  }
+
+  .noteListContainer {
+    flex: 1
+  }

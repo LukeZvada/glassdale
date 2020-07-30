@@ -1,4 +1,4 @@
-import { getNotes, useNotes } from "./NoteDataProvider.js";
+import { getNotes, useNotes } from "./NoteDataProvider.js"
 import { noteHTMLConverter } from "./Note.js";
 
 const contentTarget = document.querySelector(".noteListContainer")

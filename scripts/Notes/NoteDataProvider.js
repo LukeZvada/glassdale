@@ -12,7 +12,7 @@ export const useNotes = () => {
     return notes.slice()
 }
 export const getNotes = () => {
-    fetch('http://localhost:8088/notes')
+    return fetch('http://localhost:8088/notes')
         .then(response => response.json())
         .then(parsedNotes => {
             notes = parsedNotes
@@ -21,7 +21,7 @@ export const getNotes = () => {
 }
 
 export const saveNote = note => {
-    fetch('http://localhost:8088/notes', {
+    return fetch('http://localhost:8088/notes', {
         method: "POST", // this is a create method 
         headers: {
             "Content-Type": "application/json" //this is sending metadata. Telling the server its json 
