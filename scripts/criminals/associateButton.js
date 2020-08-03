@@ -13,9 +13,7 @@ contentTarget.addEventListener("change", (changeEvent) => {
 })
 
 export const AssociateSelect = () => { 
-    // *   ConvictionSelect component that renders a select HTML element which lists all convictions in the Glassdale PD API
     getCriminals().then(() => {
-        // Get all convictions from application state / aplication state means its current condition 
         const criminals = useCriminals()
         
         render(criminals)
@@ -31,7 +29,7 @@ export const AssociateSelect = () => {
                         alibiObject => {
                             return `<option value="${ alibiObject.id }">${alibiObject.name}</option>`
                         }
-                    ).join("") //gets rid of the comma in the array when logged
+                    ).join("") 
                 }
             </select>
         `
