@@ -25,9 +25,9 @@ export const AssociateSelect = () => {
     const render = alibiCollection => {
 
         contentTarget.innerHTML = `
-            <select class="button" id="crimeSelect">
+            <select class="button" id="alibiSelect">
                 ${
-                    alibiCollection.map(
+                    alibiCollection.find(
                         alibiObject => {
                             return `<option value="${ alibiObject.id }">${alibiObject.name}</option>`
                         }
