@@ -6,9 +6,7 @@ eventHub.addEventListener("alibiButtonClicked", customEvent => {
     const contentTarget = document.querySelector(".associatesClick")
     const criminalId = customEvent.detail.criminalChosen
 
-    const chosenCriminal = useCriminals().find(
-        (criminal) => criminal.id === parseInt(criminalId)
-    )
+    const chosenCriminal = useCriminals().find((criminal) => criminal.id === parseInt(criminalId))
 
     //This is the HTML that will be added to the dialog component at the bottom when the button is clicked" 
     contentTarget.innerHTML = `${
@@ -20,14 +18,10 @@ eventHub.addEventListener("alibiButtonClicked", customEvent => {
         }).join("")
     }`
 
+    contentTarget.innerHTML += `<button id="close_alibi">Close</button>`
     // .ShowModal will show the dialog element
     contentTarget.showModal()
 })
-    
-  
-
-
-
 
 //exporting the dialog html to the DOM 
 export const AssociatesClick = () => {
@@ -37,3 +31,12 @@ export const AssociatesClick = () => {
         </dialog>
     `
 }
+  
+
+eventHub.addEventListener("closeAlibiButtonClicked", closeAlibiButton => {
+    if(closeAlibiButton.target.id === "close__alibi__button"){
+        const contentTarget = document.querySelector(".associatesClick")
+        contentTarget.close()
+    }
+})
+
