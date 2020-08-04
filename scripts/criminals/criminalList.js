@@ -2,6 +2,7 @@ import { useCriminals, getCriminals } from "./criminalDataProvider.js";
 import { criminalHTMlConverter } from "./criminalHTMLConverter.js";
 import { useConvictions } from "../convictions/ConvictionProvider.js";
 import { useOfficers } from "../officers/OfficerProvider.js"
+import { AssociatesClick } from "./associateButton.js";
 
 const contentTarget = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
@@ -76,6 +77,7 @@ const render = (arrayOfCriminals) => {
         <article class="criminalList">
             ${ criminalHTMLRep }
         </article>
+        ${ AssociatesClick() }
     `
 }
 
