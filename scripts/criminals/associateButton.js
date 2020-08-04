@@ -18,7 +18,7 @@ eventHub.addEventListener("alibiButtonClicked", customEvent => {
         }).join("")
     }`
 
-    contentTarget.innerHTML += `<button id="close_alibi">Close</button>`
+    contentTarget.innerHTML += `<button id="close__alibi__button">Close</button>`
     // .ShowModal will show the dialog element
     contentTarget.showModal()
 })
@@ -33,7 +33,7 @@ export const AssociatesClick = () => {
 }
   
 
-eventHub.addEventListener("closeAlibiButtonClicked", closeAlibiButton => {
+eventHub.addEventListener("click", closeAlibiButton => {
     if(closeAlibiButton.target.id === "close__alibi__button"){
         const contentTarget = document.querySelector(".associatesClick")
         contentTarget.close()
