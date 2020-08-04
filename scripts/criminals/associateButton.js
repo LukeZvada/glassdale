@@ -2,7 +2,7 @@ import { useCriminals, getCriminals } from "./criminalDataProvider.js";
 
 const eventHub = document.querySelector(".container")
 
-eventHub.addEventListener("click", clickEvent => {
+eventHub.addEventListener("click", customEvent => {
     const contentTarget = document.querySelector(".associatesClick")
     const criminalId = customEvent.detail.chosenCriminal
 
@@ -10,6 +10,7 @@ eventHub.addEventListener("click", clickEvent => {
         (criminal) => criminal.id === parseInt(criminalId)
     )
 
+    //This is the HTML that will be added to the dialog component at the bottom when the button is clicked" 
     contentTarget.innerHTML = `${
         criminalChosen.known_associates.map(associate => {
             return `
