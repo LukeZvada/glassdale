@@ -1,3 +1,7 @@
+
+
+
+
 export const criminalHTMlConverter = (criminalObj) => {
     return `
         <section class="criminal">
