@@ -2,7 +2,7 @@ import { useCriminals } from "./criminalDataProvider.js";
 
 const eventHub = document.querySelector(".container")
 
-eventHub.addEventListener("click", customEvent => {
+eventHub.addEventListener("associatesClicked", customEvent => {
     const contentTarget = document.querySelector(".associatesClick")
     const criminalId = customEvent.detail.criminalChosen
 
