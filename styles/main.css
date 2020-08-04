@@ -13,5 +13,20 @@
   }
 
   .noteListContainer {
-    flex: 1
+    flex: 1;
+  }
+
+  .noteFormContainer { 
+    display: flex;
+    flex-direction: row;
+  }
+
+  .noteListButton { 
+    display: flex;
+
+  }
+
+  .note { 
+    display: flex;
+    flex-direction: row;
   }
