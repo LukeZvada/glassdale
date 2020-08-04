@@ -4,7 +4,7 @@ eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id.startsWith("alibiButton")) {
         const [associate, criminalID] = clickEvent.target.id.split("--")
 
-        const alibi = new CustomEvent("associatesClicked", {
+        const alibi = new CustomEvent("alibiButtonClicked", {
             detail: {
                 criminalChosen: criminalID
             }
