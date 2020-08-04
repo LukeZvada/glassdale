@@ -32,7 +32,7 @@ export const AssociatesClick = () => {
     `
 }
   
-
+//what happens when the close event happens
 eventHub.addEventListener("click", closeAlibiButton => {
     if(closeAlibiButton.target.id === "close__alibi__button"){
         const contentTarget = document.querySelector(".associatesClick")
