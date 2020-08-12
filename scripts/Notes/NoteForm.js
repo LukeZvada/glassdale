@@ -12,7 +12,7 @@ eventHub.addEventListener("click", clickEvent => {
         const noteAuthor = document.querySelector("#note--author")
         const noteContent = document.querySelector("#note--content")
         const crimeId = document.querySelector("#criminalSelect")
-        const [prompt, criminalId] = crimeId.value.split("--")
+        const [prompt, criminalId] = crimeId.value.split("--") //splitting at --. the prompt holds criminal
         // Make a new object representation of a note. //
         const newNote = {
             // Key/value pairs here
@@ -31,7 +31,7 @@ eventHub.addEventListener("click", clickEvent => {
 
 
 const render = () => {
-    getCriminals().then(() => {const allCriminals = useCriminals()
+    getCriminals().then(() => {const allCriminals = useCriminals() // calling get Criminals
     contentTarget.innerHTML = `
         <input type="text" id ="note--title" placeholder="Enter note title" /> 
         <input type="text" id ="note--author" placeholder="Your name here" />
