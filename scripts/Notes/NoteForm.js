@@ -20,7 +20,7 @@ eventHub.addEventListener("click", clickEvent => {
             author: noteAuthor.value,
             content: noteContent.value,
             timestamp: Date.now(),
-            criminalId: parseInt(criminalId)
+            criminalId: parseInt(criminalId) //parseInt turns a string into an integer 
         }
 
         // Change API state and application state
@@ -31,13 +31,13 @@ eventHub.addEventListener("click", clickEvent => {
 
 
 const render = () => {
-    getCriminals().then(() => {const allCriminals = useCriminals() // calling get Criminals
+    getCriminals().then(() => {const allCriminals = useCriminals() // calling get Criminals. added a select below to render a list of criminals. 
     contentTarget.innerHTML = `
         <input type="text" id ="note--title" placeholder="Enter note title" /> 
         <input type="text" id ="note--author" placeholder="Your name here" />
         <textarea id="note--content" placeholder="Place text here" /> </textarea> 
 
-        <select class="dropdown" id="criminalSelect">
+        <select class="dropdown" id="criminalSelect"> 
         <option value="0">Please select a criminal...</option>
         ${
             allCriminals.map(
