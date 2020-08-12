@@ -1,5 +1,5 @@
 import {saveNote} from "./NoteDataProvider.js"
-import { useCriminals } from "../criminals/criminalDataProvider.js"
+import { useCriminals, getCriminals } from "../criminals/criminalDataProvider.js"
 
 const contentTarget = document.querySelector(".noteFormContainer")
 const eventHub = document.querySelector(".container")
@@ -11,13 +11,16 @@ eventHub.addEventListener("click", clickEvent => {
         const noteTitle = document.querySelector("#note--title")
         const noteAuthor = document.querySelector("#note--author")
         const noteContent = document.querySelector("#note--content")
+        const crimeId = document.querySelector("#criminalSelect")
+        const [prompt, criminalId] = crimeId.value.split("--")
         // Make a new object representation of a note. //
         const newNote = {
             // Key/value pairs here
             title: noteTitle.value,
             author: noteAuthor.value,
             content: noteContent.value,
-            timestamp: Date.now()
+            timestamp: Date.now(),
+            criminalId: parseInt(criminalId)
         }
 
         // Change API state and application state
@@ -28,7 +31,7 @@ eventHub.addEventListener("click", clickEvent => {
 
 
 const render = () => {
-    const allCriminals = useCriminals()
+    getCriminals().then(() => {const allCriminals = useCriminals()
     contentTarget.innerHTML = `
         <input type="text" id ="note--title" placeholder="Enter note title" /> 
         <input type="text" id ="note--author" placeholder="Your name here" />
@@ -39,16 +42,16 @@ const render = () => {
         ${
             allCriminals.map(
                 criminalsObject => {
-                    return `<option value="${ criminalsObject.id }">${criminalsObject.name}</option>`
+                    return `<option value="criminal--${ criminalsObject.id }">${criminalsObject.name}</option>`
                 }
-            ).join("") //gets rid of the comma in the array when logged
+            ).join("") 
         }
     </select>
 
         <button id="saveNote">Save Note</button>
     `
+})
 }
-
 export const NoteForm = () => {
     render()
 }
