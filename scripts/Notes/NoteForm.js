@@ -43,7 +43,7 @@ const render = () => {
             allCriminals.map(
                 criminalsObject => {
                     return `<option value="criminal--${ criminalsObject.id }">${criminalsObject.name}</option>`
-                }
+                } // got the select button from conviction select. added criminal--??? 
             ).join("") 
         }
     </select>

@@ -32,7 +32,12 @@ export const saveNote = note => {
     .then(dispatchStateChangeEvent) //instead of x amount of notes you now have y amount of created. State event 
 }
 
-
+const deleteNote = noteId => {
+    return fetch(`http://localhost:8088/notes/${noteId}`, {
+        method: "DELETE"
+    })
+        .then(getNotes)
+}
 
 
 
