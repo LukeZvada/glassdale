@@ -18,7 +18,7 @@ export const noteHTMLConverter = (noteObject) => {
             <divclass="note__content>Content: ${noteObject.content}</div> 
             <divclass="note__timestamp>Date: ${new Date(noteObject.timestamp).toLocaleDateString( `en-US` )}</div> 
 
-            <button id="deleteNote__${noteObject.id}">Delete</button> 
+            <button id="deleteNote--${noteObject.id}">Delete</button> 
         </section>
     `
 }
