@@ -26,3 +26,16 @@ export const NoteList = () => {
         })
 }
 
+
+// eventHub.addEventListener("click", clickEvent => {
+//     if(clickEvent.target.id.startsWith("deleteNote--")) { 
+//         const [prefix, noteId] = clickEvent.target.id.split("--")
+//         deleteNote(noteId)
+//     }
+// })
+
+
+eventHub.addEventListener("noteStateChanged", customEvent => {
+    const allDeletedNotes = useNotes()
+    render(allDeletedNotes)
+})

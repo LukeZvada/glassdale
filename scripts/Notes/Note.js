@@ -1,3 +1,15 @@
+import { deleteNote } from "./NoteDataProvider.js";
+
+const eventHub = document.querySelector(".container")
+
+eventHub.addEventListener("click", clickEvent => {
+    if(clickEvent.target.id.startsWith("deleteNote--")) { 
+        const [prefix, noteId] = clickEvent.target.id.split("--")
+        
+        deleteNote(noteId)
+    }
+})
+
 export const noteHTMLConverter = (noteObject) => {
     return ` 
         <section class="note">
@@ -5,6 +17,8 @@ export const noteHTMLConverter = (noteObject) => {
             <divclass="note__author>Author: ${noteObject.author}</div> 
             <divclass="note__content>Content: ${noteObject.content}</div> 
             <divclass="note__timestamp>Date: ${new Date(noteObject.timestamp).toLocaleDateString( `en-US` )}</div> 
+
+            <button id="deleteNote__${noteObject.id}">Delete</button> 
         </section>
     `
 }
