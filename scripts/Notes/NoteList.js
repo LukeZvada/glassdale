@@ -26,8 +26,6 @@ export const NoteList = () => {
         })
 }
 
-
-
 eventHub.addEventListener("noteStateChanged", customEvent => {
     const allDeletedNotes = useNotes()
     render(allDeletedNotes)

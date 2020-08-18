@@ -28,8 +28,6 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
-
-
 const render = () => {
     getCriminals().then(() => {const allCriminals = useCriminals() // calling get Criminals. added a select below to render a list of criminals. 
     contentTarget.innerHTML = `
@@ -52,6 +50,7 @@ const render = () => {
     `
 })
 }
+
 export const NoteForm = () => {
     render()
 }
