@@ -3,6 +3,8 @@ import { criminalHTMlConverter } from "./criminalHTMLConverter.js";
 import { useConvictions } from "../convictions/ConvictionProvider.js";
 import { useOfficers } from "../officers/OfficerProvider.js"
 import { AssociatesClick } from "./associateButton.js";
+import { getCriminalFacilities, useCriminalFacilities } from "../facility/CriminalFacilityProvider.js";
+import { useFacilities, getFacilities } from "../facility/FacilityProvider.js";
 
 const contentTarget = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
@@ -81,14 +83,14 @@ const render = (arrayOfCriminals) => {
     `
 }
 
-// export const criminalList = () => {
+export const criminalList = () => {
 
-//     getCriminals()
-//         .then(() => {
-//             const criminals = useCriminals()
-//             render(criminals)
-//         })
-// }
+    getCriminals()
+        .then(() => {
+            const criminals = useCriminals()
+            render(criminals)
+        })
+}
 
 
 export const CriminalList = () => {
