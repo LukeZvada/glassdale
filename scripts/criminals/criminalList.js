@@ -81,14 +81,14 @@ const render = (arrayOfCriminals) => {
     `
 }
 
-export const criminalList = () => {
+// export const criminalList = () => {
 
-    getCriminals()
-        .then(() => {
-            const criminals = useCriminals()
-            render(criminals)
-        })
-}
+//     getCriminals()
+//         .then(() => {
+//             const criminals = useCriminals()
+//             render(criminals)
+//         })
+// }
 
 
 export const CriminalList = () => {
