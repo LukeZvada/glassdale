@@ -70,18 +70,16 @@ eventHub.addEventListener("officerSelected", (officerSelectedEvent) => {
 const render = (arrayOfCriminals) => {
     let criminalHTMLRep = ""
 
-    arrayOfCriminals.forEach(criminal => {
-        criminalHTMLRep += criminalHTMlConverter(criminal)
-    })
+    const ArrOfCriminalHTMLRep = arrayOfCriminals.map(
+        (criminal) => {
 
-    contentTarget.innerHTML = `
-        <h2>Glassdale Convicted Criminals</h2>
-        <article class="criminalList">
-            ${ criminalHTMLRep }
-        </article>
-        ${ AssociatesClick() }
-    `
-}
+            const criminalFacilityRelationships = criminalFacilites.filter(
+                (allCriminalFacilities) => {
+                    return criminal.id === allCriminalFacilities.criminalId
+                }
+            )
+        }
+    )
 
 export const criminalList = () => {
 
