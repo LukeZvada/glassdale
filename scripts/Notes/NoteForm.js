@@ -35,9 +35,8 @@ const render = () => {
         <input type="text" id ="note--author" placeholder="Your name here" />
         <textarea id="note--content" placeholder="Place text here" /> </textarea> 
         
-        <input type="hidden" id="${custId}" name="editNote" value="">
-
-
+        
+        
         <select class="dropdown" id="criminalSelect"> 
         <option value="0">Please select a criminal...</option>
         ${
@@ -47,8 +46,9 @@ const render = () => {
                 } // got the select button from conviction select. added criminal--??? 
             ).join("") 
         }
-    </select>
-
+        </select>
+        
+        <input type="hidden" id="${noteId}" name="noteId" value="">
         <button id="saveNote">Save Note</button>
     `
 })
