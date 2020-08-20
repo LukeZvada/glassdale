@@ -23,10 +23,6 @@ eventHub.addEventListener("editNote", customEvent => {
     noteContent.value = noteObject.content
     noteCriminal.value = noteObject.criminalId
     id.value = noteID
-
-
-
-
 })
 
 eventHub.addEventListener("click", clickEvent => {
@@ -94,7 +90,7 @@ const render = () => {
         <button id="saveNote">Save Note</button>
         <input type="hidden" id="noteId" name="noteId" value="">
     `
-})
+    })
 }
 
 export const NoteForm = () => {
