@@ -84,8 +84,8 @@ const render = () => {
                 }
             )
             //Below we then convert the relationship objectts to facility objects
-            const matchingFacilities = criminalFacilityRel.map((currentRelationship) =>{
-                return allFacilities.find ((facility) => {
+            const matchingFacilities = criminalFacilityRel.map((currentRelationship) => {
+                return allFacilities.find((facility) => {
                     return currentRelationship.facilityId === facility.id
                 })
             })
