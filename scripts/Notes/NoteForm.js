@@ -8,23 +8,22 @@ const eventHub = document.querySelector(".container")
 eventHub.addEventListener("editNote", customEvent => {
     const AllOfTheNotes = useNotes()
     const noteId = event.detail.notId
-    const noteObject = AllOfTheNotes.find((note) => { 
-        return note.id === noteId
-
-        const TitleOfNote = document.querySelector("#note--title")
-        const AuthorofNote = document.querySelector("#note--author")
+    const noteObject = AllOfTheNotes.find(note => note.id === noteId)
+    
+    const TitleOfNote = document.querySelector("#note--title")
+    const AuthorofNote = document.querySelector("#note--author")
         const ContentOfNote = document.querySelector("#note--content")
         const CriminalOfNote = document.querySelector("#noteForm--criminal")
         const id = document.querySelector("#noteId")
         
-        TitleOfNote.value = noteObj.title
-        AuthorofNote.value = noteObj.author
-        CantentOfNote.value = noteObj.content
-        CriminalOfNote.value = noteObj.criminalId
+        TitleOfNote.value = noteObject.title
+        AuthorofNote.value = noteObject.author
+        ContentOfNote.value = noteObject.content
+        CriminalOfNote.value = noteObject.criminalId
         id.value = noteId
 
 
-    })
+    
 
 
 })
@@ -38,6 +37,11 @@ eventHub.addEventListener("click", clickEvent => {
         const crimeId = document.querySelector("#criminalSelect")
         const [prompt, criminalId] = crimeId.value.split("--") //splitting at --. the prompt holds criminal
         // Make a new object representation of a note. //
+
+        if(noteTitle.value && noteAuthor.value && noteContent.value && noteCriminal.value){
+            const id = document.querySelector("#noteId")
+            if(id.value === ""){
+
         const newNote = {
             // Key/value pairs here
             title: noteTitle.value,
@@ -45,24 +49,26 @@ eventHub.addEventListener("click", clickEvent => {
             content: noteContent.value,
             timestamp: Date.now(),
             criminalId: parseInt(criminalId) //parseInt turns a string into an integer 
+            
         }
-
-        // Change API state and application state
-        saveNote(newNote)
-        render()
-    } else {
-        const updatedNote = {
-            title: noteTitle.value,
-            criminalId: parseInt(noteCriminal.value),
-            author: noteAuthor.value,
-            content: noteContent.value,
-            timestamp: Date.now(),
-            id: parseInt(id.value)
+            // Change API state and application state
+            saveNote(newNote)
+            render()
+        } else {
+            const EditedNote = {
+                title: noteTitle.value,
+                criminalId: parseInt(noteCriminal.value),
+                author: noteAuthor.value,
+                content: noteContent.value,
+                timestamp: Date.now(),
+                id: parseInt(id.value)
+            }
+            editNote(EditedNote)
+            id.value = ""
+    
         }
-        editNote(updatedNote)
-        id.value = ""
     }
-
+    }
 })
 
 const render = () => {
@@ -86,7 +92,7 @@ const render = () => {
         </select>
         
         <button id="saveNote">Save Note</button>
-        <input type="hidden" id="${noteId}" name="noteId" value="">
+        <input type="hidden" id="noteId" name="noteId" value="">
     `
 })
 }
