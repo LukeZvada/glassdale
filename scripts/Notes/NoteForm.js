@@ -35,7 +35,7 @@ eventHub.addEventListener("click", clickEvent => {
         const [prompt, criminalId] = crimeId.value.split("--") //splitting at --. the prompt holds criminal
         // Make a new object representation of a note. //
 
-        if (noteTitle.value && noteAuthor.value && noteContent.value && crimeId.value) {
+        if (noteTitle.value !== "" && noteAuthor.value !== "" && noteContent.value !== "" && crimeId.value !== "0") {
             const editNoteId = document.querySelector("#noteId")
 
             if (editNoteId.value === "") {
@@ -63,6 +63,8 @@ eventHub.addEventListener("click", clickEvent => {
                 editNote(EditedNote)
                 editNoteId.value = ""
             }
+        } else { 
+            window.alert("All fields required")
         }
     }
 })
@@ -70,7 +72,7 @@ eventHub.addEventListener("click", clickEvent => {
 const render = () => {
     getCriminals().then(() => {const allCriminals = useCriminals() // calling get Criminals. added a select below to render a list of criminals. 
     contentTarget.innerHTML = `
-        <input type="text" id ="note--title" placeholder="Enter note title" autofocus required/> 
+        <input type="text" id ="note--title" placeholder="Enter note title" autofocus/> 
         <input type="text" id ="note--author" placeholder="Your name here"/>
         <textarea id="note--content" placeholder="Place text here"  /> </textarea> 
         
