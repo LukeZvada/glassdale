@@ -10,9 +10,9 @@ const contentTarget = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
 
 
-let criminals = []
-let criminalFacilites = []
-let facilities = []
+let allCriminals = []
+let allCriminalFacilites = []
+let allFacilities = []
 
 eventHub.addEventListener("crimeSelected", (crimeSelectedEvent) => {
     // the goal here is to Filter displayed criminals by the crime that was chosen by the user in the dropdown menu. If they select "please select a crime.. show all of the criminals."
@@ -75,10 +75,10 @@ eventHub.addEventListener("officerSelected", (officerSelectedEvent) => {
 const render = () => {
     let criminalHTMLRep = ""
 
-    const ArrOfCriminalHTMLRep = arrayOfCriminals.map(
+    const ArrOfCriminalHTMLRep = allCriminals.map(
         (criminal) => {
             //Below I am getting all of the relationships for the criminals/facility for each criminal. 
-            const criminalFacilityRel = criminalFacilites.filter(
+            const criminalFacilityRel = allCriminalFacilites.filter(
                 (allCriminalFacilities) => {
                     return criminal.id === allCriminalFacilities.criminalId
                 }
@@ -109,9 +109,9 @@ export const criminalList = () => {
     .then(getFacilities)
     .then(getCriminals)
         .then(() => {
-            criminals = useCriminals()
-            criminalFacilites = useCriminalFacilities()
-            facilities = useFacilities()
+            allCriminals = useCriminals()
+            allCriminalFacilites = useCriminalFacilities()
+            allFacilities = useFacilities()
 
             render()
         }
