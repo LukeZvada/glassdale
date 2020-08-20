@@ -1,7 +1,7 @@
 let facilities = []
 
 export const useFacilities = () => {
-    facilities.slice()
+    return facilities.slice()
 }
 
 export const getFacilities = () => {
