@@ -34,6 +34,9 @@ const render = () => {
         <input type="text" id ="note--title" placeholder="Enter note title" /> 
         <input type="text" id ="note--author" placeholder="Your name here" />
         <textarea id="note--content" placeholder="Place text here" /> </textarea> 
+        
+        <input type="hidden" id="${custId}" name="editNote" value="">
+
 
         <select class="dropdown" id="criminalSelect"> 
         <option value="0">Please select a criminal...</option>
