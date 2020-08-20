@@ -13,11 +13,13 @@ eventHub.addEventListener("click", clickEvent => {
 eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id.startsWith("editNote--")) { 
         const [prompt, noteID] = clickEvent.target.id.split("--")
-
         const customEvent = new CustomEvent("editNote", { 
-            details: 
-            noteID = parseInt(noteID)
+            detail: {
+                noteID: parseInt(noteID)
+
+            }
         })
+
         eventHub.dispatchEvent(customEvent)
     }
 })

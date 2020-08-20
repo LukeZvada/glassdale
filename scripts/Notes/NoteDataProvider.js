@@ -40,7 +40,7 @@ export const deleteNote = (noteId) => {
         .then(dispatchStateChangeEvent)
 }
 
-const editNote = (note) => {
+export const editNote = (note) => {
     return fetch(`http://localhost:8088/notes/${ note.id }`, {
         method: "PUT",
         headers: {
