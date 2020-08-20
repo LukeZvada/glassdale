@@ -1,9 +1,33 @@
-import {saveNote} from "./NoteDataProvider.js"
+import {saveNote, useNotes} from "./NoteDataProvider.js"
 import { useCriminals, getCriminals } from "../criminals/criminalDataProvider.js"
 
 const contentTarget = document.querySelector(".noteFormContainer")
 const eventHub = document.querySelector(".container")
 
+
+eventHub.addEventListener("editNote", customEvent => {
+    const AllOfTheNotes = useNotes()
+    const noteId = event.detail.notId
+    const noteObject = AllOfTheNotes.find((note) => { 
+        return note.id === noteId
+
+        const TitleOfNote = document.querySelector("#note--title")
+        const AuthorofNote = document.querySelector("#note--author")
+        const ContentOfNote = document.querySelector("#note--content")
+        const CriminalOfNote = document.querySelector("#noteForm--criminal")
+        const id = document.querySelector("#noteId")
+        
+        TitleOfNote.value = noteObj.title
+        AuthorofNote.value = noteObj.author
+        CantentOfNote.value = noteObj.content
+        CriminalOfNote.value = noteObj.criminalId
+        id.value = noteId
+
+
+    })
+
+
+})
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveNote") {
@@ -25,7 +49,20 @@ eventHub.addEventListener("click", clickEvent => {
 
         // Change API state and application state
         saveNote(newNote)
+        render()
+    } else {
+        const updatedNote = {
+            title: noteTitle.value,
+            criminalId: parseInt(noteCriminal.value),
+            author: noteAuthor.value,
+            content: noteContent.value,
+            timestamp: Date.now(),
+            id: parseInt(id.value)
+        }
+        editNote(updatedNote)
+        id.value = ""
     }
+
 })
 
 const render = () => {
@@ -48,8 +85,8 @@ const render = () => {
         }
         </select>
         
-        <input type="hidden" id="${noteId}" name="noteId" value="">
         <button id="saveNote">Save Note</button>
+        <input type="hidden" id="${noteId}" name="noteId" value="">
     `
 })
 }
