@@ -10,6 +10,18 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
+eventHub.addEventListener("click", clickEvent => {
+    if(clickEvent.target.id.startsWith("editNote--")) { 
+        const [prompt, noteID] = clickEvent.target.id.split("--")
+
+        const customEvent = new CustomEvent("editNote", { 
+            details: 
+            noteID = parseInt(noteID)
+        })
+        eventHub.dispatchEvent(customEvent)
+    }
+})
+
 export const noteHTMLConverter = (noteObject) => {
     return ` 
         <section class="note">
@@ -19,7 +31,7 @@ export const noteHTMLConverter = (noteObject) => {
             <divclass="note__timestamp>Date: ${new Date(noteObject.timestamp).toLocaleDateString( `en-US` )}</div> 
 
             <button id="deleteNote--${noteObject.id}">Delete</button> 
-            <button id="deleteNote--${ noteObject.id }">Edit</button> 
+            <button id="editNote--${ noteObject.id }">Edit</button> 
         </section>
     `
 }
