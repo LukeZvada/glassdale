@@ -25,6 +25,15 @@ export const criminalHTMlConverter = (criminalObj) => {
             <div class="criminal__crime">Crime: ${criminalObj.conviction}</div>
             <div class="criminal__term-start">Term start: ${ new Date(criminalObj.incarceration.start).toLocaleDateString('en-US') }</div>
             <div class="criminal__term-end">Term end: ${ new Date(criminalObj.incarceration.end).toLocaleDateString('en-US') }</div>
+            
+            <ol>
+                ${ 
+                    facilities.map ((facility) => {
+                        return `<li>${ facility.facilityName }</li>`
+                    }).join("")
+                }
+            </ol>
+            
             <button id="alibiButton--${ criminalObj.id }">Alibis</button>
         </section>
     `

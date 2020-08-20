@@ -9,6 +9,11 @@ import { useFacilities, getFacilities } from "../facility/FacilityProvider.js";
 const contentTarget = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
 
+
+let criminals = []
+let criminalFacilites = []
+let facilities = []
+
 eventHub.addEventListener("crimeSelected", (crimeSelectedEvent) => {
     // the goal here is to Filter displayed criminals by the crime that was chosen by the user in the dropdown menu. If they select "please select a crime.. show all of the criminals."
 
@@ -67,19 +72,36 @@ eventHub.addEventListener("officerSelected", (officerSelectedEvent) => {
 
     // use .find to filter out the officer object that matches the officer id that was selected
 
-const render = (arrayOfCriminals) => {
+const render = () => {
     let criminalHTMLRep = ""
 
     const ArrOfCriminalHTMLRep = arrayOfCriminals.map(
         (criminal) => {
-
-            const criminalFacilityRelationships = criminalFacilites.filter(
+            //Below I am getting all of the relationships for the criminals/facility for each criminal. 
+            const criminalFacilityRel = criminalFacilites.filter(
                 (allCriminalFacilities) => {
                     return criminal.id === allCriminalFacilities.criminalId
                 }
             )
+            //Below we then convert the relationship objectts to facility objects
+            const matchingFacilities = criminalFacilityRel.map((currentRelationship) =>{
+                return facilities.find ((facility) => {
+                    return currentRelationship.facilityId === facility.id
+                })
+            })
+
+            return criminalHTMlConverter(criminal, matchingFacilities)
         }
     )
+
+    contentTarget.innerHTML = `
+    <h2>Glassdale Convicted Criminals</h2>
+    <article class="criminalList">
+        ${ ArrOfCriminalHTMLRep.join("") }
+    </article>
+    ${ AssociatesClick() }
+    `
+}
 
 export const criminalList = () => {
 
@@ -91,8 +113,9 @@ export const criminalList = () => {
             criminalFacilites = useCriminalFacilities()
             facilities = useFacilities()
 
-            render(criminals)
-        })
+            render()
+        }
+    )
 }
 
 
