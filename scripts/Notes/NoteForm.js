@@ -74,9 +74,9 @@ eventHub.addEventListener("click", clickEvent => {
 const render = () => {
     getCriminals().then(() => {const allCriminals = useCriminals() // calling get Criminals. added a select below to render a list of criminals. 
     contentTarget.innerHTML = `
-        <input type="text" id ="note--title" placeholder="Enter note title" required/> 
-        <input type="text" id ="note--author" placeholder="Your name here" />
-        <textarea id="note--content" placeholder="Place text here" /> </textarea> 
+        <input type="text" id ="note--title" placeholder="Enter note title" autofocus required/> 
+        <input type="text" id ="note--author" placeholder="Your name here" required/>
+        <textarea id="note--content" placeholder="Place text here" required /> </textarea> 
         
         
         

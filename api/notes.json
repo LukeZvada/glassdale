@@ -1,36 +1,3 @@
 {
-  "notes": [
-    {
-      "title": "Test",
-      "criminalId": null,
-      "author": "test",
-      "content": "edit test ",
-      "timestamp": 1597952715461,
-      "id": 1
-    },
-    {
-      "title": "Edit",
-      "author": "edti",
-      "content": "edit ",
-      "timestamp": 1597952177117,
-      "criminalId": null,
-      "id": 2
-    },
-    {
-      "title": "Tester",
-      "criminalId": null,
-      "author": "Luke",
-      "content": "edit test we edited it!",
-      "timestamp": 1597952751305,
-      "id": 3
-    },
-    {
-      "title": "trr",
-      "author": "rre",
-      "content": " rer",
-      "timestamp": 1597953173770,
-      "criminalId": 3,
-      "id": 4
-    }
-  ]
+  "notes": []
 }
