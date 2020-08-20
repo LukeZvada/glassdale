@@ -40,9 +40,9 @@ eventHub.addEventListener("click", clickEvent => {
         // Make a new object representation of a note. //
 
         if (noteTitle.value && noteAuthor.value && noteContent.value && crimeId.value) {
-            const id = document.querySelector("#noteId")
+            const editNoteId = document.querySelector("#noteId")
 
-            if (id.value === "") {
+            if (editNoteId.value === "") {
                 const newNote = {
                     // Key/value pairs here
                     title: noteTitle.value,
@@ -62,10 +62,10 @@ eventHub.addEventListener("click", clickEvent => {
                     author: noteAuthor.value,
                     content: noteContent.value,
                     timestamp: Date.now(),
-                    id: parseInt(id.value)
+                    id: parseInt(editNoteId.value)
                 }
                 editNote(EditedNote)
-                id.value = ""
+                editNoteId.value = ""
             }
         }
     }
